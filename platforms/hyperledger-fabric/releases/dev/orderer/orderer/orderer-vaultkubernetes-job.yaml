@@ -1,0 +1,38 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: orderer-vaultkubenertes-job
+  namespace: orderer-net
+  annotations:
+    fluxcd.io/automated: "false"
+spec:
+  interval: 1m
+  releaseName: orderer-vaultkubenertes-job
+  chart:
+    spec:
+      interval: 1m
+      sourceRef:
+        kind: GitRepository
+        name: flux-dev
+        namespace: flux-dev
+      chart: platforms/hyperledger-fabric/charts/vault_kubernetes
+  values:
+    metadata:
+      name: orderer
+      component_type: orderer
+      namespace: orderer-net    
+      images:
+        alpineutils: index.docker.io/hyperledgerlabs/alpine-utils:1.0
+
+    vault:
+      reviewer_service: vault-reviewer
+      role: vault-role
+      address: http://aa077027a6c1c43ff8b037247269814a-1850677720.eu-west-1.elb.amazonaws.com:8200
+      authpath: devorderer-net-auth
+      policy: vault-crypto-orderer-orderer-net-ro
+      secret_path: secretsv2
+      serviceaccountname: vault-auth
+      imagesecretname: regcred
+    
+    k8s:
+      kubernetes_url: https://B17EE31B0F1C352DE8B6990D698A7680.gr7.eu-west-1.eks.amazonaws.com
