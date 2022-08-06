@@ -44,7 +44,7 @@ spec:
     orderer:
       address: orderer1.orderer-net:7050
     anchorstx: |-
-      CsQCCh0KGwgCGgYIsqq6lwYiD2VtaXNzaW9uY2hhbm5lbBKiAgqfAgoPZW1pc3Npb25jaGFubmVs
+      CsQCCh0KGwgCGgYI77W6lwYiD2VtaXNzaW9uY2hhbm5lbBKiAgqfAgoPZW1pc3Npb25jaGFubmVs
       EmQSYgoLQXBwbGljYXRpb24SUwgBEk8KC2F1ZGl0b3IxTVNQEkAaBwoDTVNQEgAiCwoHUmVhZGVy
       cxIAIgsKB1dyaXRlcnMSACIKCgZBZG1pbnMSACIPCgtFbmRvcnNlbWVudBIAGqUBEqIBCgtBcHBs
       aWNhdGlvbhKSAQgBEo0BCgthdWRpdG9yMU1TUBJ+CAEaMgoLQW5jaG9yUGVlcnMSIxIZChcKEnBl
