@@ -44,7 +44,7 @@ spec:
       address: orderer1.orderer-net:7050
     chaincode:
       builder: hyperledger/fabric-ccenv:2.2.2
-      name: datalock
+      name: datalock_cc
       version: 1
       lang: golang
       maindirectory: datalock
