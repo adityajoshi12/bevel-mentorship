@@ -47,7 +47,7 @@ spec:
       name: datalock
       version: 1
       lang: golang
-      maindirectory: cmd
+      maindirectory: datalock
       repository:
         hostname: "github.com"
         git_username: "adityajoshi12"
