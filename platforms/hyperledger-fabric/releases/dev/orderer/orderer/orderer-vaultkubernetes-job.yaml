@@ -27,7 +27,7 @@ spec:
     vault:
       reviewer_service: vault-reviewer
       role: vault-role
-      address: http://a441062800e2e4ac1b05534704db1a8a-789956493.eu-west-1.elb.amazonaws.com:8200
+      address: http://aa077027a6c1c43ff8b037247269814a-1850677720.eu-west-1.elb.amazonaws.com:8200
       authpath: devorderer-net-auth
       policy: vault-crypto-orderer-orderer-net-ro
       secret_path: secretsv2
