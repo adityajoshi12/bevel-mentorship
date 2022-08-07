@@ -44,10 +44,10 @@ spec:
       address: orderer1.orderer-net:7050
     chaincode:
       builder: hyperledger/fabric-ccenv:2.2.2
-      name: datalock_cc
+      name: datalock
       version: 1
       lang: golang
-      maindirectory: datalock
+      maindirectory: cmd
       repository:
         hostname: "github.com"
         git_username: "adityajoshi12"
