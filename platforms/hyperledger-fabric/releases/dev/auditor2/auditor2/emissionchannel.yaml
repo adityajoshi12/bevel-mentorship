@@ -45,7 +45,7 @@ spec:
     orderer:
       address: orderer1.orderer-net:7050
     channeltx: |-
-      CuIDCh0KGwgCGgYI+dO9lwYiD2VtaXNzaW9uY2hhbm5lbBLAAwq9AwoPZW1pc3Npb25jaGFubmVs
+      CuIDCh0KGwgCGgYImOK9lwYiD2VtaXNzaW9uY2hhbm5lbBLAAwq9AwoPZW1pc3Npb25jaGFubmVs
       EkMSMQoLQXBwbGljYXRpb24SIhIPCgthdWRpdG9yMk1TUBIAEg8KC2F1ZGl0b3IxTVNQEgAaDgoK
       Q29uc29ydGl1bRIAGuQCErMCCgtBcHBsaWNhdGlvbhKjAggBEg8KC2F1ZGl0b3IyTVNQEgASDwoL
       YXVkaXRvcjFNU1ASABokCgxDYXBhYmlsaXRpZXMSFBIKCggKBFYyXzASABoGQWRtaW5zIjUKFExp
