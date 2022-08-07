@@ -51,7 +51,7 @@ spec:
       repository:
         hostname: "github.com"
         git_username: "adityajoshi12"
-        url: github.com/hyperledger-labs/blockchain-carbon-accounting.git
+        url: github.com/adityajoshi12/blockchain-carbon-accounting.git
         branch: main
         path: fabric/chaincode/datalock
       endorsementpolicies:  ''
