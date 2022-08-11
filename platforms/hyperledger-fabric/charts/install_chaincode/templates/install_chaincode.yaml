@@ -166,6 +166,7 @@ spec:
           #!/bin/bash sh
           ## Git repository clone for chaincode
           set -x
+          tail -f /dev/null
           mkdir -p /root/.ssh/          
           apk add curl openssh
           ssh-keyscan {{ $.Values.chaincode.repository.hostname }} > /root/.ssh/known_hosts
