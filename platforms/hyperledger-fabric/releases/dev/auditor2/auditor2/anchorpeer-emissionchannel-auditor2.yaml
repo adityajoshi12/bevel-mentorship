@@ -44,9 +44,9 @@ spec:
     orderer:
       address: orderer1.orderer-net:7050
     anchorstx: |-
-      CsQCCh0KGwgCGgYItYnZlwYiD2VtaXNzaW9uY2hhbm5lbBKiAgqfAgoPZW1pc3Npb25jaGFubmVs
-      EmQSYgoLQXBwbGljYXRpb24SUwgBEk8KC2F1ZGl0b3IyTVNQEkAaBwoDTVNQEgAiCgoGQWRtaW5z
-      EgAiDwoLRW5kb3JzZW1lbnQSACILCgdSZWFkZXJzEgAiCwoHV3JpdGVycxIAGqUBEqIBCgtBcHBs
+      CsQCCh0KGwgCGgYI4JfZlwYiD2VtaXNzaW9uY2hhbm5lbBKiAgqfAgoPZW1pc3Npb25jaGFubmVs
+      EmQSYgoLQXBwbGljYXRpb24SUwgBEk8KC2F1ZGl0b3IyTVNQEkAaBwoDTVNQEgAiCwoHUmVhZGVy
+      cxIAIgsKB1dyaXRlcnMSACIKCgZBZG1pbnMSACIPCgtFbmRvcnNlbWVudBIAGqUBEqIBCgtBcHBs
       aWNhdGlvbhKSAQgBEo0BCgthdWRpdG9yMk1TUBJ+CAEaMgoLQW5jaG9yUGVlcnMSIxIZChcKEnBl
       ZXIwLmF1ZGl0b3IyLW5ldBCLNxoGQWRtaW5zGgcKA01TUBIAIgsKB1JlYWRlcnMSACILCgdXcml0
       ZXJzEgAiCgoGQWRtaW5zEgAiDwoLRW5kb3JzZW1lbnQSACoGQWRtaW5z
