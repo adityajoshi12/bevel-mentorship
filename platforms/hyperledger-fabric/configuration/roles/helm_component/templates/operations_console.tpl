@@ -26,7 +26,7 @@ spec:
     storage:
       couchdb:
         storageclassname: {{ name }}sc
-        storagesize: 512Mi
+        storagesize: 1Gi
     service:
       name: {{ name }}console
       default_consortium: {{ default_consortium }}

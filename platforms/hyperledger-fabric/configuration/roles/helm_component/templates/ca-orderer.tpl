@@ -53,7 +53,7 @@ spec:
 {% endif %}        
     storage:
       storageclassname: {{ component | lower }}sc
-      storagesize: 512Mi 
+      storagesize: 1Gi 
     vault:
       role: vault-role
       address: {{ vault.url }}
