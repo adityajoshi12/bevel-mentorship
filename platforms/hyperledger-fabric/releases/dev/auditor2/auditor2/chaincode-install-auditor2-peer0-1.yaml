@@ -44,14 +44,14 @@ spec:
       address: orderer1.orderer-net:7050
     chaincode:
       builder: hyperledger/fabric-ccenv:2.2.2
-      name: datalock
+      name: emissioncontract
       version: 1
-      lang: golang
+      lang: node
       maindirectory: 
       repository:
         hostname: "github.com"
         git_username: "adityajoshi12"
         url: github.com/adityajoshi12/bevel.git
         branch: main
-        path: chaincode/datalock
+        path: chaincode/emissioncontract/dist
       endorsementpolicies:  ''
