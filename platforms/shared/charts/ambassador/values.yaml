@@ -371,7 +371,7 @@ redis:
   # These are placeholder values and must be tuned.
   #   limits:
   #     cpu: 100m
-  #     memory: 256Mi
+  #     memory: 1Gi
   #   requests:
   #     cpu: 50m
   #     memory: 128Mi
@@ -433,7 +433,7 @@ prometheusExporter:
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
   #   limits:
   #     cpu: 100m
-  #     memory: 256Mi
+  #     memory: 1Gi
   #   requests:
   #     cpu: 50m
   #     memory: 128Mi
