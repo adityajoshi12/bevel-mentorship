@@ -24,7 +24,7 @@ spec:
         alpineutils: index.docker.io/hyperledgerlabs/alpine-utils:1.0
     storage:
       class: auditor2sc
-      size: 256Mi
+      size: 1Gi
     vault:
       role: vault-role
       address: http://143.198.247.194:8200
