@@ -102,7 +102,7 @@ spec:
           requests: 2056M
       storage:
         name: cordaentsc
-        memory: 512Mi
+        memory: 1Gi
       replicas: 1
     healthCheckNodePort: 0
     sleepTimeAfterError: 60

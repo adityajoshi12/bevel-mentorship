@@ -23,7 +23,7 @@ spec:
       namespace: {{ component_ns }}
     storage:
       name: "cordaentsc"
-      memory: 512Mi
+      memory: 1Gi
     image:
       initContainer: {{ network.docker.url }}/{{ init_container_image }}
       nmapContainer: {{ network.docker.url }}/{{ main_container_image }}

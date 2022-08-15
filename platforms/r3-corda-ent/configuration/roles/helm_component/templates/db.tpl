@@ -25,11 +25,11 @@ spec:
       imagePullSecret: regcred
       pullPolicy: IfNotPresent
     resources:
-      limits: 512Mi
-      requests: 512Mi
+      limits: 1Gi
+      requests: 1Gi
     storage:
       name: "cordaentsc"
-      memory: 512Mi
+      memory: 1Gi
     service:
       type: NodePort
       tcp:

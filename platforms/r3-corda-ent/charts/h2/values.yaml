@@ -35,16 +35,16 @@ image:
 
 resources:
   #Provide the limit memory for node
-  #Eg. limits: "512Mi"
+  #Eg. limits: "1Gi"
   limits:
   #Provide the requests memory for node
-  #Eg. requests: "512Mi"
+  #Eg. requests: "1Gi"
   requests:
 
 storage:
   name:
   #Provide the memory for node
-  #Eg. memory: 512Mi
+  #Eg. memory: 1Gi
   memory:
   
 pvc:

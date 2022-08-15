@@ -101,7 +101,7 @@ vault:
 storage:
   #Provide the storage size for storage for keys
   #Eg. size: 128Mi
-  size: 512Mi
+  size: 1Gi
 
   #Provide the storageClassName for storage for keys
   #Eg. className: university-minikube-storageclass
