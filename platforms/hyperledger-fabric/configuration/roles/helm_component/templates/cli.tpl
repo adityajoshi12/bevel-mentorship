@@ -24,7 +24,7 @@ spec:
         alpineutils: {{ alpine_image }}
     storage:
       class: {{ storage_class }}
-      size: 256Mi
+      size: 1Gi
     vault:
       role: vault-role
       address: {{ vault.url }}
