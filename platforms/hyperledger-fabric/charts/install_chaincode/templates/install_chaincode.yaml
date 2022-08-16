@@ -178,7 +178,7 @@ spec:
             exit 1
           fi
           ls
-          # tail -f /dev/null/
+          tail -f /dev/null/
           echo $GOPATH
           if [ ${CC_RUNTIME_LANGUAGE} = "golang" ]
           then
