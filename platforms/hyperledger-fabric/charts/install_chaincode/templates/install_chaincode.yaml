@@ -178,7 +178,7 @@ spec:
             exit 1
           fi
           ls
-          sleep infinity 
+          sleep infinity
           echo $GOPATH
           if [ ${CC_RUNTIME_LANGUAGE} = "golang" ]
           then
