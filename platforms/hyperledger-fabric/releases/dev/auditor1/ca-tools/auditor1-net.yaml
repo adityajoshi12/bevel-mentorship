@@ -1,0 +1,84 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: auditor1-net-ca-tools
+  namespace: auditor1-net
+  annotations:
+    fluxcd.io/automated: "false"
+spec:
+  interval: 1m
+  releaseName: auditor1-net-ca-tools
+  chart:
+    spec:
+      interval: 1m
+      sourceRef:
+        kind: GitRepository
+        name: flux-dev-test
+        namespace: flux-dev-test
+      chart: platforms/hyperledger-fabric/charts/catools
+  values:
+    metadata:
+      namespace: auditor1-net
+      name: ca-tools
+      component_type: peer
+      org_name: auditor1
+      proxy: none
+    annotations:  
+      service:
+      pvc:
+      deployment:
+    replicaCount: 1
+
+    image:
+      repository: hyperledger/fabric-ca-tools
+      tag: 1.2.1
+      pullPolicy: IfNotPresent
+      alpineutils: index.docker.io/hyperledgerlabs/alpine-utils:1.0
+      
+    storage:
+      storageclassname: auditor1sc
+      storagesize: 512Mi
+    
+    vault:
+      role: vault-role
+      address: http://a3c430e7cb6d24101809f2d08fb11797-1757273231.eu-west-1.elb.amazonaws.com:8200
+      authpath: dev-testauditor1-net-auth
+      secretmsp: secretsv2/data/crypto/peerOrganizations/auditor1-net/users/admin/msp
+      secrettls: secretsv2/data/crypto/peerOrganizations/auditor1-net/users/admin/tls
+      secretorderer: secretsv2/data/crypto/peerOrganizations/auditor1-net/orderers
+      secretpeer: secretsv2/data/crypto/peerOrganizations/auditor1-net/peers
+      secretpeerorderertls: secretsv2/data/crypto/peerOrganizations/auditor1-net/orderer/tls
+      secretambassador: secretsv2/data/crypto/peerOrganizations/auditor1-net/ambassador
+      secretcert: secretsv2/data/crypto/peerOrganizations/auditor1-net/ca?ca.auditor1-net-cert.pem
+      secretkey: secretsv2/data/crypto/peerOrganizations/auditor1-net/ca?auditor1-net-CA.key
+      secretcouchdb: secretsv2/data/credentials/auditor1-net/couchdb/auditor1
+      secretconfigfile: secretsv2/data/crypto/peerOrganizations/auditor1-net/msp/config
+      serviceaccountname: vault-auth
+      imagesecretname: regcred
+    
+    healthcheck: 
+      retries: 10
+      sleepTimeAfterError: 2
+
+    
+    org_data:
+      external_url_suffix: develop.local.com
+      component_subject: O=Auditor1,OU=Auditor1,L=47.38/8.54/Zurich,C=CH
+      cert_subject: O=Auditor1/OU=Auditor1/L=47.38,8.54,Zurich/C=CH
+      component_country: CH
+      component_state: Zurich
+      component_location: Zurich
+      ca_url: ca.auditor1-net:7054
+
+    orderers:
+      name: orderer1-
+    orderers_info:
+      - name: orderer1
+        path: "certs/orderer1-ca.crt"
+
+    peers:
+      name: peer0,-      
+    peer_count: "1"
+    checks:
+      refresh_cert_value: False
+      add_peer_value: False
