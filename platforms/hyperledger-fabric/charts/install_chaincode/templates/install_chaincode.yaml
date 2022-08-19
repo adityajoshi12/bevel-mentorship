@@ -165,7 +165,6 @@ spec:
         - |-
           #!/bin/bash sh
           ## Git repository clone for chaincode
-          set -x
           mkdir -p /root/.ssh/          
           apk add curl openssh
           ssh-keyscan {{ $.Values.chaincode.repository.hostname }} > /root/.ssh/known_hosts
@@ -178,7 +177,6 @@ spec:
             exit 1
           fi
           ls
-          sleep infinity
           echo $GOPATH
           if [ ${CC_RUNTIME_LANGUAGE} = "golang" ]
           then
@@ -191,7 +189,8 @@ spec:
             cd $GOPATH/src/github.com/chaincode && dep ensure
 
             #chaincode path
-            CC_SRC_PATH="github.com/chaincode/${CHAINCODE_NAME}/"
+            CC_SRC_PATH="github.com/chaincode/${CHAINCODE_NAME}/${CHAINCODE_MAINDIR}"
+
             if ! [ -d "vendor" ];then
               GO111MODULE=on go mod vendor
               CC_SRC_PATH="${PWD}"
@@ -233,7 +232,7 @@ spec:
             cp -R /tmp/chaincode/{{ $.Values.chaincode.repository.path }}/* $GOPATH/src/github.com/chaincode/
 
             #chaincode path
-            CC_SRC_PATH="${GOPATH}/src/github.com/chaincode/${CHAINCODE_NAME}/"
+            CC_SRC_PATH="${GOPATH}/src/github.com/chaincode/${CHAINCODE_NAME}/${CHAINCODE_MAINDIR}"
           fi
           version1_4=`echo $NETWORK_VERSION | grep -c 1.4`
           if [ $version1_4 = 1 ];then
