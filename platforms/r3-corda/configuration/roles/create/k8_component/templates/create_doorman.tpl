@@ -49,7 +49,7 @@ spec:
       mountPath:
         basePath: /opt/doorman
     storage:
-      memory: 512Mi
+      memory: 1Gi
       name: {{ org.cloud_provider }}storageclass
     mountPath:
       basePath: /opt/doorman

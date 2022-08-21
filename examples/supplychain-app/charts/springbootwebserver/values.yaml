@@ -85,10 +85,10 @@ credentials:
 resources:
   #Provide the limit memory for node
   #Eg. limits: "1Gi"
-  limits: "512Mi"
+  limits: "1Gi"
   #Provide the requests memory for node
   #Eg. requests: "2Gi"
-  requests: "512Mi"
+  requests: "1Gi"
 
 storage:
   provisioner: 

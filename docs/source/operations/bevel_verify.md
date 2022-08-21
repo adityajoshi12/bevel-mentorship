@@ -94,7 +94,7 @@ For final checking of the validity of the fabric network.
       alpineutils: ghcr.io/hyperledger/alpine-utils:1.0
     storage:
       class: ORG_NAMEsc
-      size: 256Mi
+      size: 1Gi
     vault:
       role: ault-role
       address: VAULT_ADDR

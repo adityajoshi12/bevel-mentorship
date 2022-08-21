@@ -110,7 +110,7 @@ spec:
     pvc:
       name: {{ component_name|e }}-pvc
       annotations: {}
-      memory: 512Mi
+      memory: 1Gi
       storageClassName: {{ item.cloud_provider }}storageclass
 
     service:

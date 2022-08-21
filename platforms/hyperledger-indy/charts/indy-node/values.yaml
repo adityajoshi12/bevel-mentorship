@@ -175,7 +175,7 @@ vault:
 storage:
   keys:
     #Provide the storage size for storage for keys
-    #Eg. storagesize: 512Mi
+    #Eg. storagesize: 1Gi
     storagesize:
 
     #Provide the storageClassName for storage for keys

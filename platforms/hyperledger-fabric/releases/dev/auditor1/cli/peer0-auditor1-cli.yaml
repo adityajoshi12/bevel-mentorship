@@ -1,0 +1,43 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: peer0-auditor1-cli
+  namespace: auditor1-net
+  annotations:
+    fluxcd.io/automated: "false"
+spec:
+  interval: 1m
+  releaseName: peer0-auditor1-cli
+  chart:
+    spec:
+      interval: 1m
+      sourceRef:
+        kind: GitRepository
+        name: flux-dev-test
+        namespace: flux-dev-test
+      chart: platforms/hyperledger-fabric/charts/fabric_cli    
+  values:
+    metadata:
+      namespace: auditor1-net
+      images:
+        fabrictools: hyperledger/fabric-tools:2.2.2
+        alpineutils: index.docker.io/hyperledgerlabs/alpine-utils:1.0
+    storage:
+      class: auditor1sc
+      size: 1Gi
+    vault:
+      role: vault-role
+      address: http://a3c430e7cb6d24101809f2d08fb11797-1757273231.eu-west-1.elb.amazonaws.com:8200
+      authpath: dev-testauditor1-net-auth
+      adminsecretprefix: secretsv2/data/crypto/peerOrganizations/auditor1-net/users/admin
+      orderersecretprefix: secretsv2/data/crypto/peerOrganizations/auditor1-net/orderer
+      serviceaccountname: vault-auth
+      imagesecretname: regcred
+      tls: false
+    peer:
+      name: peer0
+      localmspid: auditor1MSP
+      tlsstatus: true
+      address: peer0.auditor1-net:7051
+    orderer:
+      address: orderer1.orderer-net:7050

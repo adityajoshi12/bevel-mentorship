@@ -31,8 +31,8 @@ storage:
     #Eg. storageclassname: aws-storage
     storageclassname: gp2
     #Provide the storagesize for storage class
-    #Eg. storagesize: 512Mi
-    storagesize: 512Mi
+    #Eg. storagesize: 1Gi
+    storagesize: 1Gi
 
 service:
   #Provide the name of the service as per deployment yaml.

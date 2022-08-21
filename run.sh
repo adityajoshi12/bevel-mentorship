@@ -13,10 +13,14 @@ echo "Adding env variables..."
 export PATH=/root/bin:$PATH
 
 #Path to k8s config file
-KUBECONFIG=/home/bevel/build/config
+export KUBECONFIG=/home/bevel/build/config
 
 echo "Validatin network yaml"
 ajv validate -s /home/bevel/platforms/network-schema.json -d /home/bevel/build/network.yaml 
 
 echo "Running the playbook..."
+<<<<<<< HEAD
 exec ansible-playbook -vv /home/bevel/platforms/shared/configuration/site.yaml --inventory-file=/home/bevel/platforms/shared/inventory/ -e "@/home/bevel/build/network.yaml" -e 'ansible_python_interpreter=/usr/bin/python3' -vvvvv
+=======
+exec ansible-playbook -vv /home/bevel/platforms/shared/configuration/site.yaml --inventory-file=/home/bevel/platforms/shared/inventory/ -e "@/home/bevel/build/network.yaml" -e 'ansible_python_interpreter=/usr/bin/python3' -vvv
+>>>>>>> 40d20933d6d70553df7a7dcc7ea772af6125b6cc
