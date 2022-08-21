@@ -27,7 +27,7 @@ spec:
     vault:
       reviewer_service: vault-reviewer
       role: vault-role
-      address: http://a3c430e7cb6d24101809f2d08fb11797-1757273231.eu-west-1.elb.amazonaws.com:8200
+      address: http://a91641c4926a744bab980b4d5c9b38c3-443950176.eu-west-1.elb.amazonaws.com:8200
       authpath: dev-testauditor1-net-auth
       policy: vault-crypto-peer-auditor1-net-ro
       secret_path: secretsv2
@@ -35,4 +35,4 @@ spec:
       imagesecretname: regcred
     
     k8s:
-      kubernetes_url: https://8C10AFBC811057F5E70F71FA61AB1E4E.yl4.eu-west-1.eks.amazonaws.com
+      kubernetes_url: https://6E0DCC48E083F5DC17C6F737215F69AC.gr7.eu-west-1.eks.amazonaws.com
