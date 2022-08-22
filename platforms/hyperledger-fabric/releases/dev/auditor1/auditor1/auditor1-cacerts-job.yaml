@@ -1,0 +1,38 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: auditor1-cacerts-job
+  namespace: auditor1-net
+  annotations:
+    fluxcd.io/automated: "false"
+spec:
+  interval: 1m
+  releaseName: auditor1-cacerts-job
+  chart:
+    spec:
+      interval: 1m
+      sourceRef:
+        kind: GitRepository
+        name: flux-dev-test
+        namespace: flux-dev-test
+      chart: platforms/hyperledger-fabric/charts/generate_cacerts
+  values:
+    metadata:
+      name: auditor1
+      component_name: auditor1-net
+      namespace: auditor1-net    
+      images:
+        fabrictools: hyperledger/fabric-tools:2.2.2
+        alpineutils: index.docker.io/hyperledgerlabs/alpine-utils:1.0
+
+    vault:
+      role: vault-role
+      address: http://a91641c4926a744bab980b4d5c9b38c3-443950176.eu-west-1.elb.amazonaws.com:8200
+      authpath: dev-testauditor1-net-auth
+      secretcryptoprefix: secretsv2/data/crypto/peerOrganizations/auditor1-net/ca
+      secretcredentialsprefix: secretsv2/data/credentials/auditor1-net/ca/auditor1
+      serviceaccountname: vault-auth
+      imagesecretname: regcred
+      
+    ca:
+      subject: /C=CH/ST=Zurich/L=Zurich/O=Auditor1/CN=ca.auditor1-net
