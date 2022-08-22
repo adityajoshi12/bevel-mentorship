@@ -1,0 +1,82 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: auditor1-peer0
+  namespace: auditor1-net
+  annotations:
+    fluxcd.io/automated: "false"
+spec:
+  interval: 1m
+  releaseName: auditor1-peer0
+  chart:
+    spec:
+      interval: 1m
+      sourceRef:
+        kind: GitRepository
+        name: flux-dev-test
+        namespace: flux-dev-test
+      chart: platforms/hyperledger-fabric/charts/peernode    
+  values:
+    metadata:
+      namespace: auditor1-net
+      images:
+        couchdb: couchdb:3.1
+        peer: hyperledger/fabric-peer:2.2.2
+        alpineutils: index.docker.io/hyperledgerlabs/alpine-utils:1.0
+    annotations:  
+      service:
+      pvc:
+      deployment:
+        
+    peer:
+      name: peer0
+      gossippeeraddress: peer0.auditor1-net:7051
+      gossipexternalendpoint: peer0.auditor1-net:7051
+      localmspid: auditor1MSP
+      loglevel: info
+      tlsstatus: true
+      builder: hyperledger/fabric-ccenv:2.2.2
+      couchdb:
+        username: auditor1-user
+
+    storage:
+      peer:
+        storageclassname: auditor1sc
+        storagesize: 1Gi
+      couchdb:
+        storageclassname: auditor1sc
+        storagesize: 1Gi
+
+    vault:
+      role: vault-role
+      address: http://a91641c4926a744bab980b4d5c9b38c3-443950176.eu-west-1.elb.amazonaws.com:8200
+      authpath: dev-testauditor1-net-auth
+      secretprefix: secretsv2/data/crypto/peerOrganizations/auditor1-net/peers/peer0.auditor1-net
+      secretambassador: secretsv2/data/crypto/peerOrganizations/auditor1-net/ambassador
+      serviceaccountname: vault-auth
+      imagesecretname: regcred
+      secretcouchdbpass: secretsv2/data/credentials/auditor1-net/couchdb/auditor1?user
+
+    service:
+      servicetype: ClusterIP
+      ports:
+        grpc:
+          clusteripport: 7051
+        events:
+          clusteripport: 7053
+        couchdb:
+          clusteripport: 5984
+          
+    proxy:
+      provider: "none"
+      external_url_suffix: develop.local.com
+
+    config:
+      pod:
+        resources:
+          limits:
+            memory: 512M
+            cpu: 1
+          requests:
+            memory: 512M
+            cpu: 0.5
