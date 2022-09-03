@@ -1,0 +1,38 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: auditor1-vaultkubenertes-job
+  namespace: auditor1-net
+  annotations:
+    fluxcd.io/automated: "false"
+spec:
+  interval: 1m
+  releaseName: auditor1-vaultkubenertes-job
+  chart:
+    spec:
+      interval: 1m
+      sourceRef:
+        kind: GitRepository
+        name: flux-dev-test
+        namespace: flux-dev-test
+      chart: platforms/hyperledger-fabric/charts/vault_kubernetes
+  values:
+    metadata:
+      name: auditor1
+      component_type: peer
+      namespace: auditor1-net    
+      images:
+        alpineutils: index.docker.io/hyperledgerlabs/alpine-utils:1.0
+
+    vault:
+      reviewer_service: vault-reviewer
+      role: vault-role
+      address: http://143.198.245.12:8200
+      authpath: dev-testauditor1-net-auth
+      policy: vault-crypto-peer-auditor1-net-ro
+      secret_path: secretsv2
+      serviceaccountname: vault-auth
+      imagesecretname: regcred
+    
+    k8s:
+      kubernetes_url: https://486dc4e6-3eb1-48bf-a763-cf2ae4102f85.k8s.ondigitalocean.com
