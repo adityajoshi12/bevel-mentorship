@@ -1,0 +1,56 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: auditor2-net-ca
+  namespace: auditor2-net
+  annotations:
+    fluxcd.io/automated: "false"
+spec:
+  interval: 1m
+  releaseName: auditor2-net-ca
+  chart:
+    spec:
+      interval: 1m
+      sourceRef:
+        kind: GitRepository
+        name: flux-dev-test
+        namespace: flux-dev-test
+      chart: platforms/hyperledger-fabric/charts/ca    
+  values:
+    metadata:
+      namespace: auditor2-net
+      images:
+        alpineutils: index.docker.io/hyperledgerlabs/alpine-utils:1.0
+        ca: hyperledger/fabric-ca:1.4.8
+    deployment:
+      annotations:
+    annotations:  
+      service:
+      pvc:
+ 
+    server:
+      name: ca
+      tlsstatus: true
+      admin: auditor2-admin 
+  
+    storage:
+      storageclassname: auditor2sc
+      storagesize: 512Mi
+    vault:
+      role: vault-role
+      address: http://143.198.245.12:8200
+      authpath: dev-testauditor2-net-auth
+      secretcert: secretsv2/data/crypto/peerOrganizations/auditor2-net/ca?ca.auditor2-net-cert.pem
+      secretkey: secretsv2/data/crypto/peerOrganizations/auditor2-net/ca?auditor2-net-CA.key
+      secretadminpass: secretsv2/data/credentials/auditor2-net/ca/auditor2?user
+      serviceaccountname: vault-auth
+      imagesecretname: regcred
+    service:
+      servicetype: ClusterIP
+      ports:
+        tcp:
+          port: 7054
+    proxy:
+      provider: none
+      type: peer
+      external_url_suffix: develop.local.com
