@@ -24,7 +24,7 @@ spec:
         zookeeper: {{ zookeeper_image }}
     storage: 
       storageclassname: {{ org_name }}sc
-      storagesize: 512Mi
+      storagesize: 1Gi
     kafka: 
       brokerservicename: {{consensus.type}}
       name: {{consensus.name}}

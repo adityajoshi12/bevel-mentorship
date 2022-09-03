@@ -34,7 +34,7 @@ spec:
         
     storage:
       storageclassname: orderersc
-      storagesize: 512Mi 
+      storagesize: 1Gi 
     vault:
       role: vault-role
       address: http://143.198.245.12:8200
