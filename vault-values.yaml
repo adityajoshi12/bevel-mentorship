@@ -1,0 +1,14 @@
+ui:
+  enabled: true
+  publishNotReadyAddresses: true
+  activeVaultPodOnly: false
+  serviceType: "LoadBalancer"
+  serviceNodePort: null
+  externalPort: 8200
+  targetPort: 8200
+
+
+#####
+# 4.227.25.68
+# hvs.sU9U31rTUPgyNOT9l7If7XYu
+# LsdG0NAxlaAO16sE3K/G0mSdtFoR5CgO804ok2lg5rc=
