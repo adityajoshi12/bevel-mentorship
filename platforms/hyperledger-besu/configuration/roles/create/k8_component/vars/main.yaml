@@ -12,3 +12,5 @@ dlt_templates:
   aws-storageclass: eks_storageclass.tpl
   minikube-storageclass: mini_storageclass.tpl
   gcp-storageclass: gcp-storageclass.tpl
+  digitalocean-storageclass: digitalocean_sc.tpl
+  azure-storageclass: azure_storageclass.tpl
