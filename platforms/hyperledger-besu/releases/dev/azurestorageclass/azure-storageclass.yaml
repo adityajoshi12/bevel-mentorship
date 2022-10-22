@@ -1,9 +1,0 @@
-apiVersion: storage.k8s.io/v1
-kind: StorageClass
-metadata:
-  name: azurestorageclass
-allowVolumeExpansion: true
-parameters:
-  skuname: StandardSSD_LRS
-provisioner: disk.csi.azure.com
-reclaimPolicy: Delete
